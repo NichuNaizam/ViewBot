@@ -10,6 +10,15 @@ by **[NichuNaizam](https://github.com/NichuNaizam/)**
 # Requirements
 **Node.js v17.1.0** (*this is the version the app was build on not sure about old versions*)
 
+# How to download the app
+Download the pre-release [from here](https://github.com/NichuNaizam/ViewBot/releases)
+Click on the win64.zip file and it should start downloading (*The app isnt available for the other platforms, if you really want it you can build it your self, i will add other platforms on the actual release*)
+
+Now extract the win64.zip using your preffered archive manager
+now open the extracted folder and run ViewBot.exe file
+
+And congrats you installed ViewBot!
+
 # How to run from sources
 Download the sources [from here](https://github.com/NichuNaizam/ViewBot/archive/refs/heads/master.zip) and extract it
 
