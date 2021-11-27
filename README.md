@@ -14,7 +14,7 @@ by **[NichuNaizam](https://github.com/NichuNaizam/)**
 Download the pre-release [from here](https://github.com/NichuNaizam/ViewBot/releases)
 Click on the win64.zip file and it should start downloading (*The app isnt available for the other platforms, if you really want it you can build it your self, i will add other platforms on the actual release*)
 
-Now extract the win64.zip using your preffered archive manager
+Now extract the win64.zip using your preferred archive manager
 now open the extracted folder and run ViewBot.exe file
 
 And congrats you installed ViewBot!
