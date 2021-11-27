@@ -1,0 +1,62 @@
+.messages-menu {
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	left: 340px;
+	min-height: 100vh;
+	width: 54%;
+	background-color: #23272a;
+}
+
+#messages-menu-container {
+	position: absolute;
+	width: 320px;
+	list-style: none;
+	overflow-y: visible;
+	overflow-x: hidden;
+	height: 90vh;
+}
+
+.message {
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.message-avatar {
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+}
+
+.message-author {
+	display: inline-block;
+	position: absolute;
+	color: white;
+	font-size: 16px;
+	margin-top: 8px;
+	margin-left: 10px;
+}
+
+.message-content {
+	color: white;
+}
+
+.message-input-container {
+	position: absolute;
+	top: 90vh;
+	width: 100%;
+	overflow: hidden;
+	height: 100%;
+}
+
+#message-input {
+	margin: 20px;
+	width: 95%;
+	height: 25px;
+
+	color: white;
+	padding: 5px 0;
+	font-size: 16px;
+    background-color: #23272a;
+	border-radius: 5px;
+}

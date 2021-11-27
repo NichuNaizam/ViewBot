@@ -1,0 +1,59 @@
+#navbar {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* display: flex;
+    align-items: center;
+    justify-content: start; */
+    min-height: 100vh;
+    width: 80px;
+    background-color: #23272a;
+}
+
+#navbar-guild-container {
+    position: absolute;
+	width: 80px;
+	list-style: none;
+	overflow-y: visible;
+	overflow-x: hidden;
+	height: 100vh;
+}
+
+.guild-item {
+    margin-top: 5px;
+    margin-left: 8px;
+}
+
+.guild-icon {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.guild-icon:hover {
+    border-radius: 25%;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}

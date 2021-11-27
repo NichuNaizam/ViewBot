@@ -1,0 +1,20 @@
+{
+  "name": "ViewBot",
+  "version": "1.0.0",
+  "description": "A bot that allows you to chat as a discord bot",
+  "main": "index.js",
+  "repository": "https://github.com/NichuNaizam/ViewBot.git",
+  "author": "NichuNaizam <naizamaliz141@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "electron .",
+    "build": "electron-packager . ViewBot --asar"
+  },
+  "devDependencies": {
+    "electron": "^16.0.2",
+    "electron-packager": "^15.4.0"
+  },
+  "dependencies": {
+    "discord.js": "12.5.1"
+  }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>ViewBot</title>
+
+		<!-- Javascript -->
+		<script>
+			if (typeof process === 'undefined') {
+				alert(`This isnt the way to run this app. Visit https://github.com/NichuNaizam/ViewBot for more info!`);
+			}
+
+			if (!crossOriginIsolated) SharedArrayBuffer = ArrayBuffer;
+		</script>
+		<script src="js/app.js"></script>
+		<script src="js/loginMenu.js"></script>
+		<script src="js/guild.js"></script>
+		<script src="js/members.js"></script>
+		<script src="js/channels.js"></script>
+		<script src="js/messages.js"></script>
+		<script src="js/messagebox.js"></script>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="styles/style.css">
+		<link rel="stylesheet" href="styles/login.css">
+		<link rel="stylesheet" href="styles/navbar.css">
+		<link rel="stylesheet" href="styles/membersMenu.css">
+		<link rel="stylesheet" href="styles/channels.css">
+		<link rel="stylesheet" href="styles/messages.css">
+	</head>
+	<body onload="load()">
+		<div class="container">
+			<!-- Token Login -->
+			<div id="login-panel" class="login-panel">
+				<div class="login-panel-wrapper">
+					<h1 class="viewbot-title">ViewBot</h1>
+					<h2 class="token-label">Token</h5>
+					<p id="invalid-token-label">Invalid Token</p>
+					<input type="text" id="token-input">
+					<button id="login-btn">Log in</button>
+				</div>
+			</div>
+
+			<!-- Navbar -->
+			<div id="navbar" class="navbar">
+				<nav>
+					<ul id="navbar-guild-container">
+						<!-- <li class="channel">
+							Test channel 1
+						</li> -->
+					</ul>
+				</nav>
+			</div>
+
+			<!-- Online members menu -->
+			<div id="members-menu" class="members-menu">
+				<nav>
+					<ul id="members-menu-container">
+						<!-- <li class="member">
+							<img class="member-avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRux8emJSEcZqzVkLF4jOewzVIZNkmPkSnEHQ&usqp=CAU" alt="avatar">
+							
+							<p class="member-username">Guild User</p>
+						</li> -->
+					</ul>
+				</nav>
+			</div>
+
+			<!-- Channels Menu -->
+			<div id="channels-menu" class="channels-menu">
+				<nav>
+					<ul id="channels-menu-container">
+					</ul>
+				</nav>
+			</div>
+
+			<!-- Messages menu -->
+			<div id="messages-menu" class="messages-menu">
+				<nav>
+					<ul id="messages-menu-container">
+						<!-- <li class="message">
+							<img class="message-avatar" src="https://cdn.discordapp.com/avatars/688328042212360208/9b78edb569c4fd08c48ed2e0bf8404f9.png" alt="NichuNaizam">
+							<p class="message-author">NichuNaizam</p>
+							<p class="message-content">This is a test message</p>
+						</li>
+						<li class="message">
+							<img class="message-avatar" src="https://cdn.discordapp.com/avatars/688328042212360208/9b78edb569c4fd08c48ed2e0bf8404f9.png" alt="NichuNaizam">
+							<p class="message-author">NichuNaizam</p>
+							<p class="message-content">This is a test message</p>
+						</li>
+						<li class="message">
+							<img class="message-avatar" src="https://cdn.discordapp.com/avatars/688328042212360208/9b78edb569c4fd08c48ed2e0bf8404f9.png" alt="NichuNaizam">
+							<p class="message-author">NichuNaizam</p>
+							<p class="message-content">This is a test message</p>
+						</li>
+						<li class="message">
+							<img class="message-avatar" src="https://cdn.discordapp.com/avatars/688328042212360208/9b78edb569c4fd08c48ed2e0bf8404f9.png" alt="NichuNaizam">
+							<p class="message-author">NichuNaizam</p>
+							<p class="message-content">This is a test message</p>
+						</li> -->
+					</ul>
+					<div class="message-input-container">
+						<input type="text" placeholder="Message" id="message-input">
+					</div>
+				</nav>
+			</div>
+		</div>
+
+		<p class="watermark">By NichuNaizam</p>
+	</body>
+</html>

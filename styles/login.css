@@ -1,0 +1,50 @@
+.login-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 96vh;
+}
+
+.login-panel-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+#token-input {
+    color: white;
+    width: 100%;
+    padding: 10px 5px;
+    background-color: #23272a;
+    border-radius: 5px;
+}
+
+#login-btn {
+    font-size: 20px;
+    width: 98%;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: #99aab5;
+    padding: 10px 20px;
+
+    transition: 0.3s;
+}
+
+#login-btn:hover {
+    background-color: #b7c3cc;
+}
+
+.viewbot-title {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    font-size: 50px;
+    transform: translate(-50%, -50%);
+}
+
+#invalid-token-label {
+    visibility: hidden;
+    color: red;
+    font-size: 20px;
+}
