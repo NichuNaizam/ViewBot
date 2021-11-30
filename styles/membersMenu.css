@@ -17,6 +17,11 @@
 	height: 100%;
 }
 
+.role {
+	margin-top: 10px;
+	color: white;
+}
+
 .member {
 	margin-left: 20px;
 	margin-top: 10px;
@@ -32,7 +37,6 @@
 .member-username {
 	display: inline-block;
 	position: absolute;
-	color: white;
 	font-size: 16px;
 	margin-top: 8px;
 	margin-left: 10px;

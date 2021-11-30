@@ -1,23 +1,26 @@
 function loadGuildsToNavbar() {
-    document.getElementById('navbar-guild-container').innerHTML = '';
+	document.getElementById('navbar-guild-container').innerHTML = '';
 
-    global.client.guilds.cache.forEach(guild => {
-        let item = document.createElement('li');
-        let guildIcon = document.createElement('img');
+	global.client.guilds.cache.forEach((guild) => {
+		let item = document.createElement('li');
+		let guildIcon = document.createElement('img');
 
-        item.onclick = function () {
-            loadChannelsFromGuild(guild);
-            loadMembersFromGuild(guild);
-        }
+		item.onclick = function () {
+			global.selectedGuild = guild;
+			global.selectedChannel = undefined;
+			clearMessages();
+			loadChannelsFromGuild(guild);
+			loadMembersFromGuild(guild);
+		};
 
-        item.className = "guild-item";
-        
-        guildIcon.className = "guild-icon";
-        guildIcon.src = guild.iconURL();
-        guildIcon.alt = guild.name;
+		item.className = 'guild-item';
 
-        item.appendChild(guildIcon);
+		guildIcon.className = 'guild-icon';
+		guildIcon.src = guild.iconURL();
+		guildIcon.alt = guild.name;
 
-        document.getElementById("navbar-guild-container").appendChild(item);
-    });
+		item.appendChild(guildIcon);
+
+		document.getElementById('navbar-guild-container').appendChild(item);
+	});
 }
