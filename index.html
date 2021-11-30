@@ -20,6 +20,7 @@
 		<script src="js/messages.js"></script>
 		<script src="js/messagebox.js"></script>
 		<script src="js/userPresence.js"></script>
+		<script src="js/userMenu.js"></script>
 
 		<!-- CSS -->
 		<link rel="stylesheet" href="styles/style.css">
@@ -28,6 +29,7 @@
 		<link rel="stylesheet" href="styles/membersMenu.css">
 		<link rel="stylesheet" href="styles/channels.css">
 		<link rel="stylesheet" href="styles/messages.css">
+		<link rel="stylesheet" href="styles/userMenu.css">
 	</head>
 	<body onload="load()">
 		<div class="container">
@@ -37,7 +39,7 @@
 					<h1 class="viewbot-title">ViewBot</h1>
 					<h2 class="token-label">Token</h5>
 					<p id="invalid-token-label">Invalid Token</p>
-					<input type="text" id="token-input">
+					<input type="password" id="token-input">
 					<button id="login-btn">Log in</button>
 				</div>
 			</div>
@@ -74,6 +76,11 @@
 				</nav>
 			</div>
 
+			<!-- User Menu -->
+			<div class="user-menu" id='user-menu'>
+
+			</div>
+
 			<!-- Messages menu -->
 			<div id="messages-menu" class="messages-menu">
 				<nav>
@@ -105,7 +112,5 @@
 				</nav>
 			</div>
 		</div>
-
-		<p class="watermark">By NichuNaizam</p>
 	</body>
 </html>

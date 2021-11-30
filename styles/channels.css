@@ -3,7 +3,7 @@
 	position: fixed;
 	top: 0;
 	left: 80px;
-	min-height: 100vh;
+	min-height: 90vh;
 	width: 260px;
 	background-color: #2c2f33;
 }
@@ -26,15 +26,31 @@
 }
 
 .channel {
+	margin-top: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	color: white;
 
 	transition: 0.3s;
 }
 
 .channel:hover {
+	background-color: #23272a;
+}
+
+.voice-channel {
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	text-align: left;
+	color: white;
+
+	transition: 0.3s;
+}
+
+.voice-channel:hover {
 	background-color: #23272a;
 }

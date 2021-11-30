@@ -4,7 +4,7 @@ function bindKeyListener() {
 	messageInput.onkeyup = function (e) {
 		console.log(messageInput.value);
 		if (messageInput.value === '') {
-			global.selectedChannel.stopTyping();
+			global.selectedChannel.stopTyping(true);
 		} else {
 			global.selectedChannel.startTyping();
 		}

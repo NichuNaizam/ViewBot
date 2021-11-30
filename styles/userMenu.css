@@ -1,0 +1,38 @@
+.user-menu {
+	display: flex;
+	position: absolute;
+	width: 260px;
+	top: 90vh;
+	left: 80px;
+}
+
+.user-menu img {
+	display: inline-block;
+	margin-top: 10px;
+	border-radius: 50%;
+	width: 45px;
+}
+
+.user-menu p {
+	color: white;
+	margin-top: 25px;
+	margin-left: 10px;
+}
+
+.user-menu button {
+	position: absolute;
+	top: 40%;
+	left: 65%;
+	font-size: 16px;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	background-color: #99aab5;
+	padding: 5px 10px;
+
+	transition: 0.3s;
+}
+
+.user-menu button:hover {
+	background-color: #b7c3cc;
+}

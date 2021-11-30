@@ -39,6 +39,8 @@ function loadMessagesFromChannel(channel) {
 }
 
 function addMessageToScreen(msg, smooth = true) {
+	if (!msg.member) return;
+
 	const messageList = document.getElementById('messages-menu-container');
 
 	let message = document.createElement('li');
@@ -56,7 +58,7 @@ function addMessageToScreen(msg, smooth = true) {
 	messageAvatar.alt = msg.author.username;
 
 	messageUsername.className = 'message-author';
-	messageUsername.innerHTML = msg.author.username;
+	messageUsername.innerHTML = msg.member.displayName;
 	if (msg.member) messageUsername.style.color = msg.member.roles.highest.hexColor;
 
 	messageContent.className = 'message-content';

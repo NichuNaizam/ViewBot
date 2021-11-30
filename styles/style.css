@@ -21,14 +21,6 @@ h6 {
 	color: white;
 }
 
-.watermark {
-	color: white;
-
-	position: absolute;
-	top: 97%;
-	left: 0%;
-}
-
 ::-webkit-scrollbar {
 	width: 0px;
 }

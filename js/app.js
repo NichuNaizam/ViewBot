@@ -1,7 +1,5 @@
 const DiscordJS = require('discord.js');
 
-global.client = new DiscordJS.Client();
-
 function load() {
 	if (localStorage.getItem('BOT_TOKEN') !== null) {
 		logInToDiscord(localStorage.getItem('BOT_TOKEN'));
@@ -17,9 +15,14 @@ function load() {
 }
 
 function logInToDiscord(token) {
+	global.client = new DiscordJS.Client();
+
+	console.log('Loggining in');
 	global.client.once('ready', () => {
+		console.log('Binding listenrs');
 		document.getElementById('invalid-token-label').style.visibility = 'hidden';
 		bindKeyListener();
+		loadUserMenu();
 		setMessageListener();
 		setPresenceListener();
 		hideLoginMenu();
@@ -27,12 +30,21 @@ function logInToDiscord(token) {
 	});
 
 	global.client.login(token).catch(() => {
+		console.log('Invalid token');
 		document.querySelector('.login-panel').style.visibility = 'visible';
 		document.getElementById('invalid-token-label').style.visibility = 'visible';
 	});
 }
 
 function logOutFromDiscord() {
+	clearChannels();
+	clearMessages();
+	clearGuilds();
+	clearMembers();
+	hideUserMenu();
+
+	localStorage.removeItem('BOT_TOKEN');
+
 	global.client.destroy();
 	showLoginMenu();
 }

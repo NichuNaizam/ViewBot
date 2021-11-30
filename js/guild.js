@@ -1,6 +1,7 @@
 function loadGuildsToNavbar() {
-	document.getElementById('navbar-guild-container').innerHTML = '';
+	clearGuilds();
 
+	document.getElementById('navbar').style.visibility = 'visible';
 	global.client.guilds.cache.forEach((guild) => {
 		let item = document.createElement('li');
 		let guildIcon = document.createElement('img');
@@ -15,12 +16,19 @@ function loadGuildsToNavbar() {
 
 		item.className = 'guild-item';
 
+		let guildImage = guild.iconURL() !== null ? guild.iconURL() : './assets/default_guild.png'; 
+
 		guildIcon.className = 'guild-icon';
-		guildIcon.src = guild.iconURL();
+		guildIcon.src = guildImage;
 		guildIcon.alt = guild.name;
 
 		item.appendChild(guildIcon);
 
 		document.getElementById('navbar-guild-container').appendChild(item);
 	});
+}
+
+function clearGuilds() {
+	document.getElementById('navbar').style.visibility = 'hidden';
+	document.getElementById('navbar-guild-container').innerHTML = '';
 }
