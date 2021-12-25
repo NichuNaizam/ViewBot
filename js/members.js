@@ -53,9 +53,12 @@ function addMembers(member, offline = false) {
 
 	memberAvatar.src = member.user.displayAvatarURL();
 	memberAvatar.alt = member.user.tag;
-	memberAvatar.onclick = function () {
-		document.getElementById('message-input').value += ` <@${member.user.id}>`
-	}
+	memberAvatar.onclick = async function () {
+		const channel = await addDMChannel(member.user);
+		loadDMS();
+		console.log(channel);
+		loadMessagesFromChannel(channel, true);
+	};
 
 	let status = member.user.presence.status;
 	let color;
@@ -71,7 +74,7 @@ function addMembers(member, offline = false) {
 
 	if (offline) {
 		status = 'Offline';
-		color = '#808080'
+		color = '#808080';
 	}
 
 	memberStatus.innerHTML = status;
@@ -85,8 +88,7 @@ function addMembers(member, offline = false) {
 
 	if (offline) {
 		document.getElementById('offline').appendChild(memberItem);
-	}
-	else if (member.roles.cache.size > 0) {
+	} else if (member.roles.cache.size > 0) {
 		document.getElementById(member.roles.highest.id).appendChild(memberItem);
 	} else {
 		membersList.appendChild(memberItem);

@@ -38,6 +38,36 @@
     border-radius: 25%;
 }
 
+.selected-guild {
+    border-radius: 25%;
+}
+
+.navbar-home {
+    margin-top: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-bottom: 5px;
+
+    border-bottom: 2px solid gray;
+}
+
+.navbar-home-icon {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.navbar-home-icon:hover {
+    border-radius: 25%;
+}
+
+.navbar-home-selected {
+    border-radius: 25%;
+}
+
 /* width */
 ::-webkit-scrollbar {
 	width: 0px;

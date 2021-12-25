@@ -1,4 +1,4 @@
-const { BrowserWindow, app } = require('electron');
+const { BrowserWindow, Notification, app, ipcMain } = require('electron');
 const path = require('path');
 
 function createWindow() {
@@ -22,3 +22,7 @@ function createWindow() {
 }
 
 app.on('ready', createWindow);
+
+ipcMain.on('message-notification', (event, value) => {
+    new Notification({ title: value.authorName, icon: './assets/logo.png', body: value.messageContent }).show();
+});

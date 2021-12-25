@@ -1,15 +1,26 @@
-let isMessageListenderLoaded = false;
+const { ipcRenderer } = require('electron');
+
+let isChannelMessageListenderLoaded = false;
 
 function setMessageListener() {
-	if (isMessageListenderLoaded) return;
-	isMessageListenderLoaded = true;
+	if (isChannelMessageListenderLoaded) return;
+	isChannelMessageListenderLoaded = true;
 
 	const messageList = document.getElementById('messages-menu-container');
 
 	global.client.on('message', (msg) => {
+		const value = {
+			authorName: msg.author.username,
+			messageContent: msg.content,
+		};
+
+		if (msg.author.id !== global.client.user.id) {
+			ipcRenderer.send('message-notification', value);
+		}
+
 		if (!global.selectedChannel || msg.channel !== global.selectedChannel) return;
 
-		addMessageToScreen(msg);
+		addMessageToScreen(msg, true, msg.channel.type === 'dm');
 	});
 
 	global.client.on('messageDelete', (msg) => {
@@ -19,7 +30,7 @@ function setMessageListener() {
 	});
 }
 
-function loadMessagesFromChannel(channel) {
+function loadMessagesFromChannel(channel, dm = false) {
 	global.selectedChannel = channel;
 
 	clearMessages();
@@ -27,20 +38,28 @@ function loadMessagesFromChannel(channel) {
 	document.getElementById('messages-menu').style.visibility = 'visible';
 	const messageList = document.getElementById('messages-menu-container');
 
-	channel.messages.fetch({ limit: 100 }).then((messages) => {
-		messages
+	if (dm === true || channel.type === 'dm') {
+		channel.messages.cache
 			.sort((message1, message2) => {
 				return message1.createdTimestamp - message2.createdTimestamp;
 			})
 			.forEach((msg) => {
-				addMessageToScreen(msg, false);
+				addMessageToScreen(msg, false, true);
 			});
-	});
+	} else if (channel.type === 'text') {
+		channel.messages.fetch({ limit: 100 }).then((messages) => {
+			messages
+				.sort((message1, message2) => {
+					return message1.createdTimestamp - message2.createdTimestamp;
+				})
+				.forEach((msg) => {
+					addMessageToScreen(msg, false);
+				});
+		});
+	}
 }
 
-function addMessageToScreen(msg, smooth = true) {
-	if (!msg.member) return;
-
+function addMessageToScreen(msg, smooth = true, dm = false) {
 	const messageList = document.getElementById('messages-menu-container');
 
 	let message = document.createElement('li');
@@ -58,7 +77,7 @@ function addMessageToScreen(msg, smooth = true) {
 	messageAvatar.alt = msg.author.username;
 
 	messageUsername.className = 'message-author';
-	messageUsername.innerHTML = msg.member.displayName;
+	messageUsername.innerHTML = dm ? msg.author.username : msg.member.displayName;
 	if (msg.member) messageUsername.style.color = msg.member.roles.highest.hexColor;
 
 	messageContent.className = 'message-content';

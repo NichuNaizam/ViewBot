@@ -8,10 +8,12 @@
   "license": "MIT",
   "scripts": {
     "test": "electron .",
+    "build-windows": "electron-packager . ViewBot --platform=win32 --arch=x64 --asar",
     "build": "electron-packager . ViewBot --asar"
   },
   "devDependencies": {
     "electron": "^16.0.2",
+    "electron-installer-debian": "^3.1.0",
     "electron-packager": "^15.4.0"
   },
   "dependencies": {

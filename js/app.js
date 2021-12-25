@@ -22,6 +22,7 @@ function logInToDiscord(token) {
 		console.log('Binding listenrs');
 		document.getElementById('invalid-token-label').style.visibility = 'hidden';
 		bindKeyListener();
+		bindDMListener();
 		loadUserMenu();
 		setMessageListener();
 		setPresenceListener();

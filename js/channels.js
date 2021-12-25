@@ -53,6 +53,38 @@ function loadChannelsFromGuild(guild) {
 		});
 }
 
+async function addDMChannel(author) {
+	document.getElementById('channels-menu').style.visibility = 'visible';
+
+	let channel = null;
+	global.DMList.forEach((value) => {
+		if (value.user.id === author.id) {
+			channel = value.channel;
+		}
+	});
+
+	if (channel === null) {
+		channel = await author.createDM();
+		global.DMList.push({ user: author, channel: channel });
+	}
+
+	if (global.selectedGuild !== undefined) return;
+	const channelList = document.getElementById('channels-menu-container');
+
+	let channelItem = document.createElement('li');
+	channelItem.className = 'channel';
+	channelItem.id = 'dm=' + author.id;
+	channelItem.innerHTML = author.username;
+
+	channelItem.onclick = function () {
+		loadMessagesFromChannel(channel);
+	};
+
+	channelList.appendChild(channelItem);
+
+	return channel;
+}
+
 function clearChannels() {
 	document.getElementById('channels-menu-container').innerHTML = '';
 	document.getElementById('channels-menu').style.visibility = 'hidden';
