@@ -12,7 +12,7 @@
     "build": "electron-packager . ViewBot --asar"
   },
   "devDependencies": {
-    "electron": "^16.0.2",
+    "electron": "^16.0.6",
     "electron-installer-debian": "^3.1.0",
     "electron-packager": "^15.4.0"
   },
